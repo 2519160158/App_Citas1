@@ -17,6 +17,11 @@
     <string name="nuevo_enfermedad">Enfermedad</string>
     <string name="nuevo_cita">Cita</string>
 
+    <string name="llave_id_paciente">ID Paciente</string>
+    <string name="llave_id_doctor">ID Doctor</string>
+    <string name="llave_id_enfermedad">ID Enfermedad</string>
+
+
     <string name="hint_tsangre">Tipo de sangre</string>
     <!-- Selects -->
     <string-array name="tipos_sangre">
@@ -30,6 +35,12 @@
         <item>AB+</item>
         <item>AB-</item>
     </string-array>
+
+    <string name="hint_paciente">Tipo de sangre</string>
+    <!-- Selects -->
+    <string-array name="id_paciente"/>
+    <string-array name="id_medico"/>
+    <string-array name="id_enfermedad"/>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -21,8 +21,9 @@
                 android:id="@+id/imageProdRi"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_gravity="center"
-                tools:src="@tools:sample/avatars" />
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/doctor" />
 
             <LinearLayout
                 android:layout_width="match_parent"

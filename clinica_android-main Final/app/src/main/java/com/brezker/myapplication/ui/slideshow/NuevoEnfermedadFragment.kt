@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.brezker.myapplication.R
 import com.brezker.myapplication.databinding.FragmentNuevoEnfermedadBinding
 import com.brezker.myapplication.extras.Models
+import com.brezker.myapplication.extras.VariablesGlobales
 import com.google.gson.Gson
 import okhttp3.Call
 import okhttp3.Callback
@@ -60,10 +61,10 @@ class NuevoEnfermedadFragment : Fragment() {
             var gson = Gson()
             var objEnfermedad = gson.fromJson(json_enfermedad, Models.Enfermedad::class.java)
 
-            com.brezker.myapplication.ui.slideshow.id_enfermedad = objEnfermedad.id
+            id_enfermedad = objEnfermedad.id
             binding.edtNombre.setText(objEnfermedad.nombre)
             binding.edtTipo.setText(objEnfermedad.tipo)
-            binding.edtDescripcion.setText(objEnfermedad.descripcion)
+            binding.edtDescripcion.setText(objEnfermedad.Descripcion)
         }
 
         binding.btnGuardar.setOnClickListener{
@@ -82,12 +83,14 @@ class NuevoEnfermedadFragment : Fragment() {
             .add("id", id_enfermedad.toString())
             .add("nombre", binding.edtNombre.text.toString())
             .add("tipo", binding.edtTipo.text.toString())
-            .add("descripcion", binding.edtDescripcion.text.toString())
+            .add("Descripcion", binding.edtDescripcion.text.toString())
             .build()
 
         val request = Request.Builder()
             //.url("http://yourip:8000/api/enfermedad")
-            .url("http://192.168.0.7:8000/api/enfermedad")
+            //.url("http://10.10.48.1:8000/api/enfermedad")
+            //.url("http://192.168.0.13:8000/api/enfermedad")
+            .url(VariablesGlobales.enfermedadUrl)
             .post(formBody)
             .build()
         client.newCall(request).enqueue(object : Callback {
@@ -116,7 +119,9 @@ class NuevoEnfermedadFragment : Fragment() {
 
         val request = Request.Builder()
             //.url("http://yourip:8000/api/enfermedad")
-            .url("http://192.168.0.7:8000/api/enfermedad/delete")
+            //.url("http://10.10.48.1:8000/api/enfermedad")
+            //.url("http://192.168.0.13:8000/api/enfermedad")
+            .url(VariablesGlobales.enfermedadBorrarUrl)
             .post(formBody)
             .build()
         client.newCall(request).enqueue(object : Callback {

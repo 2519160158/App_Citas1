@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.gallery.NuevoDoctorFragment"
-    android:background="@drawable/fondo">
+    android:background="@drawable/fondo4">
 
     <EditText
         android:id="@+id/edtEspecialidad"

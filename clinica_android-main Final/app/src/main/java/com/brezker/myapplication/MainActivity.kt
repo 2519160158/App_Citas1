@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.widget.Toast
 import com.brezker.myapplication.databinding.ActivityMainBinding
 import com.brezker.myapplication.extras.Models
+import com.brezker.myapplication.extras.VariablesGlobales
 import com.google.gson.Gson
 import okhttp3.Call
 import okhttp3.Callback
@@ -22,6 +23,7 @@ import java.io.IOException
 private lateinit var binding: ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_main)
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             fnLogin();
         }
         setContentView(view)
+
 
     }
     fun fnLogin(){
@@ -46,8 +49,10 @@ class MainActivity : AppCompatActivity() {
 
 
         val request = Request.Builder()
-            //.url("http://yourip:8000/api/login")
-            .url("http://192.168.0.7:8000/api/login")
+
+            //.url("http://10.10.48.1:8000/api/login")
+            //.url("http://192.168.0.13:8000/api/login")
+            .url(VariablesGlobales.loginUrl)
             .post(formBody)
             .build()
         client.newCall(request).enqueue(object : Callback {
@@ -78,6 +83,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+
     }
+
 
 }

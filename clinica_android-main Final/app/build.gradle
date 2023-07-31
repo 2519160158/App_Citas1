@@ -7,6 +7,10 @@ android {
     namespace 'com.brezker.myapplication'
     compileSdk 33
 
+
+
+
+
     defaultConfig {
         applicationId "com.brezker.myapplication"
         minSdk 24

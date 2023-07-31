@@ -13,6 +13,7 @@ import com.brezker.myapplication.R
 import com.brezker.myapplication.databinding.FragmentGalleryBinding
 import com.brezker.myapplication.extras.Models
 import com.brezker.myapplication.extras.DoctorAdapter
+import com.brezker.myapplication.extras.VariablesGlobales
 import com.google.gson.Gson
 import okhttp3.Call
 import okhttp3.Callback
@@ -56,7 +57,9 @@ class GalleryFragment : Fragment() {
     }
     fun obtenerDatos(){
         //var url("http://yourip:8000/api/login")
-        var url = "http://192.168.0.7:8000/api/doctores"
+        //var url = "http://10.10.48.1:8000/api/doctores"
+        //var url = "http://192.168.0.13:8000/api/medicos"
+        var url = (VariablesGlobales.medicosUrl)
 
         var request = Request.Builder()
             .url(url)

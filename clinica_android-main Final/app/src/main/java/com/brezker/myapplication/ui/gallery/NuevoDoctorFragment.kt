@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.brezker.myapplication.R
 import com.brezker.myapplication.databinding.FragmentNuevoDoctorBinding
 import com.brezker.myapplication.extras.Models
+import com.brezker.myapplication.extras.VariablesGlobales
 import com.brezker.myapplication.ui.gallery.id_doctor
 import com.google.gson.Gson
 import okhttp3.Call
@@ -93,7 +94,9 @@ class NuevoDoctorFragment : Fragment() {
 
         val request = Request.Builder()
             //.url("http://yourip:8000/api/paciente")
-            .url("http://192.168.0.7:8000/api/doctor")
+            //.url("http://10.10.48.1:8000/api/doctor")
+            //.url("http://192.168.0.13:8000/api/medico")
+            .url(VariablesGlobales.medicoUrl)
             .post(formBody)
             .build()
         client.newCall(request).enqueue(object : Callback {
@@ -122,7 +125,11 @@ class NuevoDoctorFragment : Fragment() {
 
         val request = Request.Builder()
             //.url("http://yourip:8000/api/paciente")
-            .url("http://192.168.0.7:8000/api/doctor/delete")
+            //.url("http://10.10.48.1:8000/api/doctor/borrar")
+            //.url("http://192.168.0.13:8000/api/medico/borrar")
+            .url(VariablesGlobales.medicoBorrarUrl)
+
+
             .post(formBody)
             .build()
         client.newCall(request).enqueue(object : Callback {

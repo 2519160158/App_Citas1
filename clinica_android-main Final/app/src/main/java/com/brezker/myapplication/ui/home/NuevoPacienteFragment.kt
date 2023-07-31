@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.brezker.myapplication.R
 import com.brezker.myapplication.databinding.FragmentNuevoPacienteBinding
 import com.brezker.myapplication.extras.Models
+import com.brezker.myapplication.extras.VariablesGlobales
 import com.google.gson.Gson
 import okhttp3.Call
 import okhttp3.Callback
@@ -25,13 +26,13 @@ import java.io.IOException
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "json_paciente"
+const val ARG_PARAM1 = "json_paciente"
 //private val tiposSangre = arrayOf("A","B","AB","O")
 private var id_paciente: Int = 0
 private lateinit var binding: FragmentNuevoPacienteBinding
 private lateinit var spinner: Spinner
 //private var selectedType: String? = null
-private var selectedType: String = ""
+var selectedType: String = ""
 
 /**
  * A simple [Fragment] subclass.
@@ -145,7 +146,10 @@ class NuevoPacienteFragment : Fragment() {
 
         val request = Request.Builder()
             //.url("http://yourip:8000/api/paciente")
-            .url("http://192.168.0.7:8000/api/paciente")
+            //.url("http://10.10.48.1:8000/api/paciente")
+            //.url("http://192.168.0.13:8000/api/paciente")
+            .url(VariablesGlobales.pacienteUrl)
+
             .post(formBody)
             .build()
         client.newCall(request).enqueue(object : Callback {
@@ -174,7 +178,8 @@ class NuevoPacienteFragment : Fragment() {
 
         val request = Request.Builder()
             //.url("http://yourip:8000/api/paciente")
-            .url("http://192.168.0.7:8000/api/paciente/delete")
+            //.url("http://192.168.0.13:8000/api/paciente/borrar")
+            .url(VariablesGlobales.pacienteBorrarUrl)
             .post(formBody)
             .build()
         client.newCall(request).enqueue(object : Callback {

@@ -13,7 +13,8 @@ import com.brezker.myapplication.R
 import com.brezker.myapplication.databinding.FragmentCitaBinding
 import com.brezker.myapplication.extras.CitaAdapter
 import com.brezker.myapplication.extras.Models
-import com.brezker.myapplication.extras.DoctorAdapter
+import com.brezker.myapplication.extras.VariablesGlobales
+import com.brezker.myapplication.ui.gallery.GalleryViewModel
 import com.google.gson.Gson
 import okhttp3.Call
 import okhttp3.Callback
@@ -26,8 +27,6 @@ class CitaFragment : Fragment() {
 
     private var _binding: FragmentCitaBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -45,7 +44,6 @@ class CitaFragment : Fragment() {
             var navController = findNavController()
             navController.navigate(R.id.nav_nuevo_cita)
         }
-
         obtenerDatos()
 
         return root
@@ -55,12 +53,15 @@ class CitaFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-    fun obtenerDatos(){
-        //var url("http://yourip:8000/api/login")
-        var url = "http://192.168.100.21:8000/api/citas"
+
+    private fun obtenerDatos() {
+        //var url = "http://192.168.0.13:8000/api/citas"
+        var url = (VariablesGlobales.citasUrl)
 
         var request = Request.Builder()
-            .url(url)
+
+            //.url("http://10.10.48.1:8000/api/citas")
+            .url(VariablesGlobales.citasUrl)
             .header("Accept", "application/json")
             //.header("Autorization", "Bearer" + TOKEN)
             .get()

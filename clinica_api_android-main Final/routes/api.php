@@ -1,12 +1,12 @@
 <?php
 
+use App\Http\Controllers\EnfermedadControler;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\pacienteController;
-use App\Http\Controllers\doctorController;
-use App\Http\Controllers\enfermedadController;
-use App\Http\Controllers\citaController;
 use App\Http\Controllers\login_controller;
+use App\Http\Controllers\MedicoControler;
+use App\Http\Controllers\PacienteControler;
+use App\Http\Controllers\CitaControler;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,28 +25,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('login', [login_controller::class, 'login']);
 
-Route::get('/pacientes', [pacienteController::class, 'list']);
-//Route::get('/paciente', [pacienteController::class, 'list']);
-Route::post('/paciente', [pacienteController::class, 'save']);
-Route::post('/paciente/delete', [pacienteController::class, 'delete']);
+Route::get('/pacientes', [PacienteControler::class, 'list']);
+Route::post('/paciente', [PacienteControler::class, 'save']);
+Route::post('/paciente/borrar', [PacienteControler::class, 'delete']);
 
-Route::get('/doctores', [doctorController::class, 'list']);
-//Route::get('/paciente', [pacienteController::class, 'list']);
-Route::post('/doctor', [doctorController::class, 'save']);
-Route::post('/doctor/delete', [doctorController::class, 'delete']);
+Route::get('/enfermedades', [EnfermedadControler::class, 'list']);
+Route::post('/enfermedad', [EnfermedadControler::class, 'save']);
+Route::post('/enfermedad/borrar', [EnfermedadControler::class, 'delete']);
 
-Route::get('/enfermedades', [enfermedadController::class, 'list']);
-//Route::get('/paciente', [pacienteController::class, 'list']);
-Route::post('/enfermedad', [enfermedadController::class, 'save']);
-Route::post('/enfermedad/delete', [enfermedadController::class, 'delete']);
+Route::get('/medicos', [MedicoControler::class, 'list']);
+Route::post('/medico', [MedicoControler::class, 'save']);
+Route::post('/medico/borrar', [MedicoControler::class, 'delete']);
 
-Route::get('/citas', [citaController::class, 'list']);
-//Route::get('/paciente', [pacienteController::class, 'list']);
-Route::post('/cita', [citaController::class, 'save']);
-Route::post('/cita/delete', [citaController::class, 'delete']);
-
-/*
-Route::get('user'), function () {
-    return User::all();
-});
-*/
+Route::get('/citas', [CitaControler::class, 'list']);
+Route::post('/cita', [CitaControler::class, 'save']);
+Route::post('/cita/borrar', [CitaControler::class, 'delete']);

@@ -20,13 +20,13 @@ class CitaAdapter (private val dataSet: MutableList<Models.Cita>) :
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val txtIdenfermedad: TextView
-        val txtIdpaciente: TextView
+        val txtConsultorio: TextView
+        val txtNombrePaciente: TextView
 
         init {
             // Define click listener for the ViewHolder's View.
-            txtIdenfermedad = view.findViewById(R.id.txtIdenfermedad)
-            txtIdpaciente = view.findViewById(R.id.txtIdpaciente)
+            txtConsultorio = view.findViewById(R.id.txtConsultorio)
+            txtNombrePaciente = view.findViewById(R.id.txtNombrePaciente)
         }
     }
 
@@ -64,8 +64,8 @@ class CitaAdapter (private val dataSet: MutableList<Models.Cita>) :
             navController.navigate(R.id.nav_nuevo_cita, bundle)
         }
 
-        viewHolder.txtIdenfermedad.text = dataSet[position]?.id_enfermedad
-        viewHolder.txtIdpaciente.text = dataSet[position]?.id_paciente
+        viewHolder.txtConsultorio.text = dataSet[position]?.consultorio
+        viewHolder.txtNombrePaciente.text = dataSet[position]?.nombre_paciente
 
     }
 

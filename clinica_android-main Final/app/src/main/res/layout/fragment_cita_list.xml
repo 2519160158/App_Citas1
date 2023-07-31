@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.cita.CitaFragment" >
+    tools:context=".ui.cita.CitaFragment"
+    android:background="@drawable/fondo4">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDatosCita"

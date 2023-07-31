@@ -21,8 +21,9 @@
                 android:id="@+id/imageProdRi"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_gravity="center"
-                tools:src="@tools:sample/avatars" />
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/cita" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -32,14 +33,14 @@
 
                 <!-- Title, secondary and supporting text -->
                 <TextView
-                    android:id="@+id/txtIdenfermedad"
+                    android:id="@+id/txtConsultorio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="IdEnfermedad"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     />
                 <TextView
-                    android:id="@+id/txtIdpaciente"
+                    android:id="@+id/txtNombrePaciente"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"

@@ -14,6 +14,7 @@ import com.brezker.myapplication.R
 import com.brezker.myapplication.databinding.FragmentSlideshowBinding
 import com.brezker.myapplication.extras.EnfermedadAdapter
 import com.brezker.myapplication.extras.Models
+import com.brezker.myapplication.extras.VariablesGlobales
 import com.google.gson.Gson
 import okhttp3.Call
 import okhttp3.Callback
@@ -57,7 +58,9 @@ class SlideshowFragment : Fragment() {
     }
     fun obtenerDatos(){
         //var url("http://yourip:8000/api/login")
-        var url = "http://192.168.0.7:8000/api/enfermedades"
+        //var url = "http://10.10.48.1:8000/api/enfermedades"
+        //var url = "http://192.168.0.13:8000/api/enfermedades"
+        var url = (VariablesGlobales.enfermedadesUrl)
 
         var request = Request.Builder()
             .url(url)
